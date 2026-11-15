@@ -14,5 +14,23 @@
 import Cell from "./Cell.jsx";
 
 export default function Matrix({ matrix, onIncrement }) {
-  throw new Error("TODO");
+  return (
+    <table className="matrix">
+      <tbody>
+        {matrix.map((row, index) => (
+          <tr key={index}>
+            {row.map((value, col) => (
+              <td key={col}>
+                <Cell 
+                  row={index} 
+                  col={col} 
+                  value={value} 
+                  onClick={() => onIncrement(index, col)} />
+              </td>
+            ))}
+          </tr>
+        ))}
+      </tbody>
+    </table>
+  );
 }
